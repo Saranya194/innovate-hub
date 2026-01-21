@@ -1,0 +1,97 @@
+/* HEADER BAR */
+.header {
+  height: 70px;
+  background: white;
+  border-bottom: 2px solid #e3e6ec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+
+  position: fixed;    /* Stick to very top */
+  top: 0;
+  left: 250px;        /* Start after sidebar width */
+  width: calc(100% - 250px); /* Header spans remaining screen */
+
+  z-index: 999;
+}
+
+/* WELCOME TEXT */
+.header h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.header h3 span {
+  color: #004ecb;
+  font-weight: bold;
+}
+
+/* PROFILE AREA */
+.profile-area {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-icon {
+  font-size: 42px;
+  color: #004ecb;
+}
+
+/* DROPDOWN (PROFILE MENU) */
+.dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: white;
+  padding: 14px;
+  width: 190px;
+
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  z-index: 1000;
+}
+
+
+.dropdown-name {
+  font-weight: bold;
+  color: #004ecb;
+  font-size: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e6e9f2;
+}
+
+.dropdown button {
+  width: 100%;
+  padding: 10px 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #f5f7ff;
+  color: #004ecb;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown button:hover {
+  background: #e0e7ff;
+}
+
+
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

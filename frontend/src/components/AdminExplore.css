@@ -1,0 +1,115 @@
+.explore-page {
+  display: flex;
+}
+
+/* FILTER PANEL */
+.filter-panel {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 260px;
+  height: calc(100vh - 50px);
+  background: white;
+  padding: 24px;
+  box-shadow: 4px 0 18px rgba(0,0,0,0.08);
+}
+
+/* FILTER */
+.filter-panel h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.filter-group {
+  margin-bottom: 22px;
+}
+
+.filter-group h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* SEARCH */
+.search-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background: #1e40af;
+}
+
+/* RESULTS */
+.results-panel {
+  margin-left: 280px;
+  padding: 24px;
+  width: calc(100% - 280px);
+}
+
+.results-count {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* USER CARD */
+.user-card {
+  background: white;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+.user-left {
+  text-align: left;
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.user-sub {
+  font-size: 15px;
+  color: #475569;
+  margin-top: 6px;
+}
+
+/* VIEW BUTTON */
+.view-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.view-btn:hover {
+  background: #1e40af;
+}

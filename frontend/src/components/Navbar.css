@@ -1,0 +1,53 @@
+.navbar {
+  background: linear-gradient(90deg, #002b7f, #0052cc);
+  padding: 25px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+/* LEFT SECTION */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lbrce-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: white;
+  padding: 4px;
+}
+
+.lbrce-letters span {
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 3px;
+}
+
+.l { color: #ff7f27; }
+.b { color: #ffcc00; }
+.r { color: #00a651; }
+.c { color: #0094ff; }
+.e { color: #8e44ad; }
+
+/* CENTER TITLE */
+.center-title {
+  text-align: center;
+  flex: 1;
+}
+
+.center-title h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.center-title p {
+  margin: 4px 0 0;
+  font-size: 15px;
+  opacity: 0.9;
+}

@@ -1,0 +1,92 @@
+/* ================= DASHBOARD LAYOUT ================= */
+.dashboard-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* MAIN CONTENT */
+.dashboard-main {
+  margin-left: 250px;   /* SAME AS SIDEBAR WIDTH */
+  width: calc(100% - 250px);
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* CONTENT AREA */
+.dashboard-content {
+  padding: 30px 40px;
+}
+
+/* ================= METRIC CARDS ================= */
+.metrics-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.metric-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.metric-box h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.metric-box p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+/* ================= CHARTS ================= */
+.charts-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.chart-box {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.chart-box h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+}

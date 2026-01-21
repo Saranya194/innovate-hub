@@ -1,0 +1,102 @@
+/* TITLE */
+.admindb-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 26px;
+}
+
+/* METRICS */
+.admindb-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+}
+
+.admindb-metric-card {
+  height: 100px;
+  border-radius: 14px;
+  padding: 14px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+  transition: transform 0.2s;
+}
+
+.admindb-metric-card:hover {
+  transform: translateY(-4px);
+}
+
+.admindb-metric-card span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.admindb-metric-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* COLORS */
+.blue { background: linear-gradient(135deg,#2563eb,#1e40af); }
+.green { background: linear-gradient(135deg,#22c55e,#15803d); }
+.orange { background: linear-gradient(135deg,#f97316,#c2410c); }
+.yellow { background: linear-gradient(135deg,#eab308,#a16207); }
+.red { background: linear-gradient(135deg,#ef4444,#991b1b); }
+.indigo { background: linear-gradient(135deg,#6366f1,#4338ca); }
+.sky { background: linear-gradient(135deg,#3b82f6,#1d4ed8); }
+.emerald { background: linear-gradient(135deg,#10b981,#065f46); }
+.slate { background: linear-gradient(135deg,#64748b,#334155); }
+.purple { background: linear-gradient(135deg,#8b5cf6,#6d28d9); }
+.cyan { background: linear-gradient(135deg,#06b6d4,#0e7490); }
+.dark { background: linear-gradient(135deg,#020617,#0f172a); }
+
+/* CHART GRID */
+.admindb-charts-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 2fr 1.3fr;
+  gap: 26px;
+}
+
+/* WHITE CARD */
+.admindb-chart-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.admindb-chart-card h4 {
+  text-align: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* INNER CHART AREA — THIS FIXES LABEL OVERFLOW */
+.admindb-chart-inner {
+  width: 100%;
+  height: calc(100% - 36px);
+}
+
+/* BAR */
+.admindb-bar {
+  height: 360px;
+}
+
+/* PIE — WIDER & CENTERED */
+.admindb-pie {
+  height: 360px;
+}
+
+/* LINE — NOT FULL SCREEN */
+.admindb-line {
+  grid-column: span 2;
+  height: 340px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width:80%
+}

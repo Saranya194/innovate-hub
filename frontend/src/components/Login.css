@@ -1,0 +1,119 @@
+/* PAGE BACKGROUND */
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e8ecf5;
+}
+
+/* CENTER BOX */
+.login-box {
+  width: 900px;
+  height: 450px;
+  display: flex;
+  border-radius: 22px;
+  overflow: hidden;
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 40px rgba(0, 70, 160, 0.3);
+}
+
+/* LEFT SECTION */
+.login-left {
+  width: 50%;
+  padding: 45px;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 60, 180, 0.45);
+  backdrop-filter: blur(20px);
+  text-align: center;
+}
+
+.login-left h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* RIGHT SECTION */
+.login-right {
+  width: 50%;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.login-right h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #003c99;
+}
+
+/* SAME WIDTH INPUTS */
+.input-box {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  font-size: 16px;
+}
+
+/* PASSWORD AREA */
+.password-area {
+  position: relative;
+}
+
+
+
+.eye-icon1 {
+  position: absolute;
+  right: 0px;
+  top: 14px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #004ecb;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: #0052cc;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #003c99;
+}
+
+/* ERROR MESSAGE */
+.login-error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}

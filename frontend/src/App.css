@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fb;
+}
+
+.navbar h1 { margin:0; font-size:28px; }
+.navbar p { margin:6px 0 0; opacity:0.95; }
+
+main { padding: 40px 16px; text-align:center; }
+
+.registration-title { color:#ff6600; font-size:24px; margin-bottom:24px; }
+
+.boxes-container {
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.box {
+  width:240px;
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  transition: transform .18s ease;
+  cursor:pointer;
+}
+.box:hover { transform: translateY(-6px); }
+.box img { width:80px; height:80px; }
+.box h3 { margin-top:12px; margin-bottom:6px; color:#222; }
+
+.footer {
+  background:#002b7f;
+  color:white;
+  padding:6px 0;
+  text-align:center;
+  margin-top:60px;
+  font-size: 14px;
+}
+/* Ensure app fills the screen and footer stays visible */
+html, body, #root {
+  height: 100%;
+}
+
+.app-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 40px 16px;
+}

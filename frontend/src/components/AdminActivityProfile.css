@@ -1,0 +1,164 @@
+.activity-profile {
+  padding: 12px 24px;
+  padding-top: 50px; /* 🔥 matches navbar height */
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* TOP BAR */
+.profile-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 64px;
+  width: 100%;
+  background: linear-gradient(90deg, #020617, #0f172a);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.profile-bar h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.profile-bar span {
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  border: none;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  box-shadow: 0 6px 18px rgba(239,68,68,0.35);
+}
+
+/* METRIC */
+.metric-box {
+  background: white;
+  padding: 10px 18px;
+  border-radius: 12px;
+  display: inline-block;
+
+  margin-top: 0px;    
+  margin-bottom: 16px;
+
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.metric-row {
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* CHART */
+.chart-card {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.chart-wrapper {
+  height: 200px;
+  max-width: 320px;
+  margin: auto;
+}
+
+/* TABLE */
+.table-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.export-btn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.export-btn:hover {
+  box-shadow: 0 6px 18px rgba(37,99,235,0.35);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: #f1f5f9;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+th {
+  font-weight: 700;
+}
+
+/* DOWNLOAD */
+.download-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.download-btn:hover {
+  background: #1e40af;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .profile-bar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .chart-wrapper {
+    height: 160px;
+  }
+}

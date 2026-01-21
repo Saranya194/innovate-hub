@@ -1,0 +1,104 @@
+/* ================= MSME SECTION ================= */
+.msme-section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.msme-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ================= GRID ================= */
+.msme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+/* ================= CARD ================= */
+.msme-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= TITLE ================= */
+.msme-card-title {
+  color: #1e40af;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* ================= ROW ================= */
+.msme-row {
+  display: grid;
+  grid-template-columns: 80px 12px 1fr; /* label | : | value */
+  align-items: start;
+  margin: 6px 0;
+}
+
+.msme-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+}
+
+.msme-colon {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+.msme-value {
+  font-size: 14px;
+  color: #374151;
+  text-align: left;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+}
+
+.modal-box button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #1e40af;
+  color: white;
+}
+
+.modal-box .cancel {
+  background: #1e40af;   /* same blue */
+  color: white;
+}
+
+.modal-box .cancel:hover {
+  background: #1a3696;
+}

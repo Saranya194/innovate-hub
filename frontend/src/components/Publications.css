@@ -1,0 +1,73 @@
+/* ================= PUBLICATION SECTION ================= */
+.publication-section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.publication-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ================= GRID ================= */
+.publication-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+/* ================= CARD ================= */
+.publication-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  /* IMPORTANT */
+  text-align: left;
+}
+
+/* ================= TITLE ================= */
+.publication-card-title {
+  text-align: center;          /* ONLY title centered */
+  color: #1e40af;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* ================= ROW (KEY FIX) ================= */
+.publication-row {
+  display: grid;
+  grid-template-columns: 80px 14px 1fr; /* EXACT like Research Papers */
+  align-items: start;
+  margin: 6px 0;
+}
+
+/* Label */
+.publication-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+}
+
+/* Colon */
+.publication-colon {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+/* Value */
+.publication-value {
+  font-size: 14px;
+  color: #374151;
+  text-align: left;
+}

@@ -1,0 +1,225 @@
+/* ================= GLOBAL RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+/* ================= FORM CARD ================= */
+.research-wrapper {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 22px 26px;             /* reduced padding */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= TITLES ================= */
+.section-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+/* ================= FORM GRID ================= */
+.research-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;                 /* reduced vertical gap */
+}
+
+/* ================= FORM GROUP ================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.form-group label {
+  font-size: 13px;                /* smaller label text */
+  font-weight: 500;
+  margin-bottom: 4px;             /* tighter spacing */
+  color: #374151;
+}
+
+/* ================= INPUTS & SELECTS ================= */
+.form-group input,
+.form-group select {
+  height: 34px;                   /* 🔥 reduced height */
+  padding: 4px 10px;              /* 🔥 reduced padding */
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;                /* 🔥 smaller font */
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* Date input fix */
+.form-group input[type="date"] {
+  padding: 3px 10px;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 0 1px rgba(30, 64, 175, 0.15);
+}
+
+/* ================= FULL WIDTH ================= */
+.full-width {
+  grid-column: span 2;
+}
+
+/* File input */
+.form-group input[type="file"] {
+  height: auto;
+  padding: 6px;
+  font-size: 13px;
+}
+
+/* ================= SUBMIT BUTTON ================= */
+.submit-btn {
+  grid-column: span 2;
+  justify-self: center;
+  margin-top: 10px;
+
+  background: #1e40af;
+  color: white;
+  padding: 8px 24px;              /* smaller button */
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+
+  min-width: 200px;
+  max-width: 240px;
+}
+
+.submit-btn:hover {
+  background: #1a3696;
+}
+
+/* ================= PAPERS SECTION ================= */
+.papers-section {
+  margin-top: 20px;               /* closer to header */
+  margin-bottom: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.papers-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+
+/* ================= COMMON WIDTH ================= */
+.papers-section {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= TITLES ================= */
+.section-title,
+.papers-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ================= PAPERS SECTION ================= */
+.papers-section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.papers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.paper-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.paper-title {
+  color: #1e40af;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+
+.paper-row {
+  display: grid;
+  grid-template-columns: 80px 12px 1fr; /* label | : | value */
+  align-items: start;
+  margin: 6px 0;
+}
+
+.paper-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+}
+
+.paper-colon {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+.paper-value {
+  font-size: 14px;
+  color: #374151;
+  text-align: left;
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+}
+
+.modal-box button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #1e40af;
+  color: white;
+}
+
+.modal-box .cancel {
+  background: #1e40af;   /* same blue */
+  color: white;
+}
+
+.modal-box .cancel:hover {
+  background: #1a3696;
+}

@@ -1,0 +1,66 @@
+/* ================= SECTION ================= */
+.award-section {
+  margin: 20px auto 40px;
+  max-width: 1100px;
+}
+
+/* ================= TITLE ================= */
+.award-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ================= GRID ================= */
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+/* ================= CARD ================= */
+.award-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= CARD TITLE ================= */
+.award-card-title {
+  color: #1e40af;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* ================= ROW ================= */
+.award-row {
+  display: grid;
+  grid-template-columns: 90px 10px 1fr; /* label | : | value */
+  align-items: center;
+  margin: 6px 0;
+}
+
+/* ================= TEXT ================= */
+.award-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+}
+
+.award-colon {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+.award-value {
+  font-size: 14px;
+  color: #374151;
+  text-align: left;
+}

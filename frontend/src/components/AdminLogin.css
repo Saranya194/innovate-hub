@@ -1,0 +1,103 @@
+/* MAIN WRAPPER */
+.admin-login-wrapper {
+  margin: 60px auto;
+  width: 85%;
+  max-width: 1500px;
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* LEFT PANEL IMAGE */
+.admin-login-left {
+  width: 45%;
+  background: #7ea0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.admin-login-left img {
+  width: 90%;
+  max-width: 350px;
+}
+
+/* RIGHT PANEL */
+.admin-login-right {
+  width: 55%;
+  padding: 60px;
+  text-align: center;
+}
+
+.admin-login-right h2 {
+  margin-bottom: 40px;
+  color: #004ecb;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* INPUT BOXES (same length) */
+.input-box3 {
+  width: 80%;
+  margin: 0 auto 18px auto;
+}
+
+.input-box3 input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+/* PASSWORD AREA WITH EYE ICON */
+.password-area {
+  position: relative;
+  margin: 0 auto 20px auto;
+  width: 80%;
+}
+
+.password-area input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #004ecb;
+}
+
+/* LOGIN BUTTON (NOT full-width) */
+.login-btn {
+  width: 40%;
+  min-width: 180px;
+  margin-top: 10px;
+  padding: 12px;
+  background: #004ecb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #00389b;
+}
+
+/* ERROR MESSAGE */
+.error {
+  color: red;
+  font-size: 15px;
+  margin-top: 10px;
+}
