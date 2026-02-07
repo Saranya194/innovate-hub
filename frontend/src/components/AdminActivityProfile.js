@@ -9,6 +9,7 @@ import {
   BarElement,
   Tooltip,
 } from "chart.js";
+import * as XLSX from "xlsx";
 import "./AdminActivityProfile.css";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
@@ -48,46 +49,79 @@ export default function AdminActivityProfile() {
 
   const fileKey = FILE_FIELD[activity];
 
-  /* ⬇️ EXPORT CSV */
-  const exportCSV = () => {
-  if (!records.length) return;
+  /* ⬇️ EXPORT EXCEL (.xlsx) */
+  const exportExcel = () => {
+    if (!records.length) return;
 
-  const headers = Object.keys(records[0]).filter(
-    (k) =>
-      !["_id", "ownerId", "ownerRole", "__v"].includes(k) &&
-      k !== fileKey
-  );
+    const headers = Object.keys(records[0]).filter(
+      (k) =>
+        !["_id", "ownerId", "ownerRole", "__v"].includes(k) &&
+        k !== fileKey
+    );
 
-  const rows = [
-    headers.map(formatHeader).join(","), // table-style headers
-    ...records.map((r) =>
-      headers.map((h) => displayValue(r[h])).join(",")
-    ),
-  ];
+    const formattedData = records.map((r) => {
+      const row = {};
+      headers.forEach((h) => {
+        let value = r[h];
 
-  const blob = new Blob([rows.join("\n")], {
-    type: "text/csv;charset=utf-8;",
-  });
+        if (Array.isArray(value)) value = value.join(", ");
+        if (value === null || value === undefined || value === "")
+          value = "-";
 
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = `${activity}_${profile.name}.csv`;
-  link.click();
-};
+        row[formatHeader(h)] = value;
+      });
+      return row;
+    });
 
+    const worksheet = XLSX.utils.json_to_sheet(formattedData);
+    const workbook = XLSX.utils.book_new();
+
+    /* 🔹 BOLD HEADER ROW */
+    const range = XLSX.utils.decode_range(worksheet["!ref"]);
+    for (let C = range.s.c; C <= range.e.c; ++C) {
+      const cell = worksheet[XLSX.utils.encode_cell({ r: 0, c: C })];
+      if (cell) {
+        cell.s = {
+          font: { bold: true },
+          alignment: { horizontal: "center" },
+        };
+      }
+    }
+
+    /* 🔹 Auto column width */
+    worksheet["!cols"] = Object.keys(formattedData[0]).map((key) => ({
+      wch: Math.max(
+        key.length,
+        ...formattedData.map((r) => String(r[key]).length)
+      ),
+    }));
+
+    XLSX.utils.book_append_sheet(
+      workbook,
+      worksheet,
+      `${activity.toUpperCase()} Details`
+    );
+
+    XLSX.writeFile(
+      workbook,
+      `${activity}_${profile.name}.xlsx`
+    );
+  };
 
   return (
     <div className="activity-profile">
-
       {/* 🔷 TOP BAR */}
       <div className="profile-bar">
         <div>
           <h2>{profile.name}</h2>
           <span>
-            {role === "student"
-              ? `${profile.department} · Year ${profile.year}`
-              : `${profile.designation} · ${profile.department}`}
-          </span>
+  {role === "student"
+    ? `${profile.department} · Year ${profile.year}`
+    : role === "faculty"
+    ? `${profile.designation} · ${profile.department}`
+    : "Coordinator"}
+</span>
+
         </div>
 
         <button
@@ -120,7 +154,6 @@ export default function AdminActivityProfile() {
                   data: [records.length],
                   backgroundColor: "#2563eb",
                   barThickness: 36,
-                  borderRadius: 0,
                 },
               ],
             }}
@@ -143,8 +176,8 @@ export default function AdminActivityProfile() {
       <div className="table-card">
         <div className="table-header">
           <h3>{activity.toUpperCase()} Details</h3>
-          <button className="export-btn" onClick={exportCSV}>
-            Export CSV
+          <button className="export-btn" onClick={exportExcel}>
+            Export Excel
           </button>
         </div>
 
@@ -182,13 +215,12 @@ export default function AdminActivityProfile() {
                   {fileKey && (
                     <td>
                       {r[fileKey] ? (
-                       <a
-  className="download-btn"
-  href={`http://localhost:5000/api/download/${r[fileKey]}`}
->
-  Download
-</a>
-
+                        <a
+                          className="download-btn"
+                          href={`http://localhost:5000/api/download/${r[fileKey]}`}
+                        >
+                          Download
+                        </a>
                       ) : (
                         "-"
                       )}
@@ -208,7 +240,6 @@ export default function AdminActivityProfile() {
           </table>
         </div>
       </div>
-
     </div>
   );
 }

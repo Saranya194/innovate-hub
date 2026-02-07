@@ -15,6 +15,7 @@ export default function AdminNavbar() {
         <NavLink to="/admin/sih">SIH</NavLink>
         <NavLink to="/admin/msme">MSME</NavLink>
         <NavLink to="/admin/awards">Awards</NavLink>
+        <NavLink to="/admin/bulk-upload">Bulk Upload</NavLink>
         <NavLink to="/admin/certificates">Certificates</NavLink>
       </div>
 

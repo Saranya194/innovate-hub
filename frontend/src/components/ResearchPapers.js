@@ -14,6 +14,7 @@ export default function ResearchPapers() {
     journalName: "",
     publisher: "IEEE",
     publicationType: "Journal",
+    publicationDatabase: "",
     volume: "",
     issue: "",
     pageNumbers: "",
@@ -21,6 +22,10 @@ export default function ResearchPapers() {
     citationCount: "",
     paperPdf: null,
   };
+  const role = localStorage.getItem("adminRole");
+const isCoordinator =
+  role === "central_coordinator" || role === "incubation_coordinator";
+
 
   const [formData, setFormData] = useState(initialState);
   const [fileKey, setFileKey] = useState(Date.now());
@@ -90,15 +95,22 @@ export default function ResearchPapers() {
      FORM SUBMIT
   =============================== */
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!verified) {
-      setShowFaceModal(true);
-      return;
-    }
-
+  // 🚫 NO FACE VERIFICATION FOR COORDINATORS
+  if (isCoordinator) {
     submitPaper();
-  };
+    return;
+  }
+
+  // ✅ FACE VERIFICATION FOR STUDENT / FACULTY
+  if (!verified) {
+    setShowFaceModal(true);
+    return;
+  }
+
+  submitPaper();
+};
 
   /* ===============================
      DELETE
@@ -203,6 +215,25 @@ export default function ResearchPapers() {
             </select>
           </div>
 
+          <div className="form-group">
+  <label>Publication Database</label>
+  <select
+    name="publicationDatabase"
+    value={formData.publicationDatabase}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Database</option>
+    <option>Scopus</option>
+    <option>SCI</option>
+    <option>SCIE</option>
+    <option>UGC CARE</option>
+    <option>Open Access</option>
+    <option>Impact Factor</option>
+  </select>
+</div>
+
+
           {["volume", "issue", "pageNumbers"].map((k) => (
             <div className="form-group" key={k}>
               <label>{k.charAt(0).toUpperCase() + k.slice(1)}</label>
@@ -231,7 +262,7 @@ export default function ResearchPapers() {
           </div>
 
           <div className="form-group full-width">
-            <label>- PDF Upload</label>
+            <label>PDF Upload</label>
             <input
               key={fileKey}
               type="file"
@@ -249,16 +280,17 @@ export default function ResearchPapers() {
       </div>
 
       {/* ================= FACE VERIFY MODAL ================= */}
-      {showFaceModal && (
-        <FaceVerifyModal
-          onSuccess={() => {
-            setVerified(true);
-            setShowFaceModal(false);
-            submitPaper();
-          }}
-          onClose={() => setShowFaceModal(false)}
-        />
-      )}
+      {showFaceModal && !isCoordinator && (
+  <FaceVerifyModal
+    onSuccess={() => {
+      setVerified(true);
+      setShowFaceModal(false);
+      submitPaper();
+    }}
+    onClose={() => setShowFaceModal(false)}
+  />
+)}
+
     </>
   );
 }

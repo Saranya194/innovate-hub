@@ -90,6 +90,13 @@ export default function Login() {
             </div>
 
             <button className="login-btn">LOGIN</button>
+            <p
+  className="forgot-link"
+  onClick={() => navigate("/forgot-password/student")}
+>
+  Forgot Password?
+</p>
+
 
             {error && <p className="login-error">{error}</p>}
           </form>

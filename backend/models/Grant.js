@@ -14,10 +14,16 @@ const GrantSchema = new mongoose.Schema(
       required: true
     },
     ownerRole: {
-      type: String,
-      enum: ["student", "faculty"],
-      required: true
-    }
+  type: String,
+  enum: [
+    "student",
+    "faculty",
+    "central_coordinator",
+    "incubation_coordinator"
+  ],
+  required: true
+}
+
   },
   { timestamps: true }
 );

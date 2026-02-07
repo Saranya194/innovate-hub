@@ -12,7 +12,15 @@
   background: white;
   padding: 24px;
   box-shadow: 4px 0 18px rgba(0,0,0,0.08);
+
+  /* ✅ ADD THESE */
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
 }
+.filter-panel {
+  scroll-behavior: smooth;
+}
+
 
 /* FILTER */
 .filter-panel h3 {

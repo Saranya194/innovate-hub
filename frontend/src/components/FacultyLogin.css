@@ -131,3 +131,15 @@
   text-align: center;
   font-weight: bold;
 }
+
+.forgot-link {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 13px;
+  color: #0a4fd5;
+  cursor: pointer;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}

@@ -3,6 +3,8 @@ import axios from "axios";
 import "./ResetPassword.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+const validatePassword = (p) =>
+  /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,15}$/.test(p);
 
 export default function ResetPassword() {
   const [oldPassword, setOldPassword] = useState("");
@@ -14,25 +16,31 @@ export default function ResetPassword() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+  e.preventDefault();
+  setError("");
 
-    try {
-      await axios.post("/api/student/reset-password", {
-        oldPassword,
-        newPassword,
-      });
+  if (!validatePassword(newPassword)) {
+    setError(
+      "Password must be 6–15 characters and include at least 1 uppercase letter, 1 number, and 1 special character"
+    );
+    return;
+  }
 
-      alert("Password updated successfully ✅");
+  try {
+    await axios.post("/api/student/reset-password", {
+      oldPassword,
+      newPassword,
+    });
 
-      // 🔥 force re-login
-      localStorage.clear();
-      navigate("/login");
+    alert("Password Reset successfully ✅");
 
-    } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong");
-    }
-  };
+    localStorage.clear();
+    navigate("/login");
+
+  } catch (err) {
+    setError(err.response?.data?.message || "Something went wrong");
+  }
+};
 
   return (
     <div className="reset-wrapper">

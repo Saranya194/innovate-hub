@@ -162,4 +162,30 @@ router.post("/reset-password", auth, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+router.post("/forgot-password", async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
+
+    if (!email || !newPassword) {
+      return res.status(400).json({ message: "All fields required" });
+    }
+
+    const faculty = await Faculty.findOne({ email });
+
+    if (!faculty) {
+      return res.status(404).json({ message: "Faculty not found" });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    faculty.password = hashedPassword;
+    await faculty.save();
+
+    res.json({ message: "Password reset successful" });
+
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;

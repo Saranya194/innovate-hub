@@ -2,10 +2,43 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const roles = [
-  { key: "admin", title: "Admin", img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png" },
-  { key: "faculty", title: "Faculty", img: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png" },
-  { key: "student", title: "Student", img: "https://cdn-icons-png.flaticon.com/512/3135/3135810.png" }
+  {
+    key: "admin",
+    title: "Admin",
+    img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+    route: "/admin-login/admin",
+    type: "login",
+  },
+  {
+    key: "central-coordinator",
+    title: "Central Coordinator",
+    img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+    route: "/admin-login/central_coordinator",
+    type: "login",
+  },
+  {
+    key: "incubation-coordinator",
+    title: "Incubation Coordinator",
+    img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+    route: "/admin-login/incubation_coordinator",
+    type: "login",
+  },
+  {
+    key: "faculty",
+    title: "Faculty",
+    img: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png",
+    route: "/faculty-register",
+    type: "register",
+  },
+  {
+    key: "student",
+    title: "Student",
+    img: "https://cdn-icons-png.flaticon.com/512/3135/3135810.png",
+    route: "/student-register",
+    type: "register",
+  },
 ];
+
 
 export default function RegistrationBoxes() {
   const navigate = useNavigate();
@@ -19,15 +52,13 @@ export default function RegistrationBoxes() {
           <div
             key={r.key}
             className="box"
-            onClick={() => {
-              if (r.key === "admin") navigate("/admin-login");
-              if (r.key === "student") navigate("/student-register");
-              if (r.key === "faculty") navigate("/faculty-register");
-            }}
+            onClick={() => navigate(r.route)}
           >
             <img src={r.img} alt={r.title} />
             <h3>{r.title}</h3>
-            <p>Click to go to {r.title} registration</p>
+            <p>
+              Click to go to {r.title} {r.type === "login" ? "login" : "registration"}
+            </p>
           </div>
         ))}
       </div>

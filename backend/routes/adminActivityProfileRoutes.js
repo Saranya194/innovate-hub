@@ -4,6 +4,9 @@ const router = express.Router();
 const Student = require("../models/Student");
 const Faculty = require("../models/Faculty");
 
+const Admin = require("../models/Admin");
+
+
 const ResearchPaper = require("../models/ResearchPaper");
 const Startup = require("../models/Startup");
 const Publication = require("../models/Publication");
@@ -20,6 +23,8 @@ const MODELS = {
   sih: SIH,
   msme: MSME,
   awards: Award,
+  coordinatorUploads: require("../models/CoordinatorUpload")
+
 };
 
 router.get("/:activity/:role/:id", async (req, res) => {
@@ -29,16 +34,20 @@ router.get("/:activity/:role/:id", async (req, res) => {
     const Model = MODELS[activity];
     if (!Model) return res.status(400).json({ message: "Invalid activity" });
 
-    let profile =
-      role === "student"
-        ? await Student.findById(id).lean()
-        : await Faculty.findById(id).lean();
 
-    if (!profile) return res.status(404).json({ message: "User not found" });
+let profile;
+if (role === "student") {
+  profile = await Student.findById(id).lean();
+} else if (role === "faculty") {
+  profile = await Faculty.findById(id).lean();
+} else {
+  profile = await Admin.findById(id).lean(); // coordinators
+}
+
 
     const records = await Model.find({
       ownerId: id,
-      ownerRole: role,
+      ownerRole: role
     }).lean();
 
     res.json({ profile, records });
@@ -47,5 +56,6 @@ router.get("/:activity/:role/:id", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 module.exports = router;

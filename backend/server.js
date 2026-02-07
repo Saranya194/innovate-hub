@@ -35,6 +35,18 @@ app.use("/api/admin/explore", require("./routes/adminExploreRoutes"));
 app.use("/api/admin/activity", require("./routes/adminActivityProfileRoutes"));
 app.use("/api/chatbot", require("./routes/chatbotRoutes"));
 app.use("/api/certificates", require("./routes/certificateRoutes"));
+app.use("/api/student", require("./routes/studentRoutes"));
+app.use("/api/faculty", require("./routes/facultyRoutes"));
+app.use(
+  "/api/coordinator",
+  require("./routes/coordinatorUploadRoutes")
+);
+
+app.use(
+  "/api/coordinator/dashboard",
+  require("./routes/coordinatorDashboardRoutes")
+);
+
 
 /* ===================== STATIC FILE SERVING ===================== */
 // All uploaded files (research, sih, msme, awards)
@@ -50,23 +62,21 @@ app.use(
 app.get("/api/download/:filename", (req, res) => {
   const { filename } = req.params;
 
-  const normalPath = path.join(__dirname, "uploads", filename);
-  const certificatePath = path.join(
-    __dirname,
-    "uploads/certificates",
-    filename
-  );
+  const paths = [
+    path.join(__dirname, "uploads", filename),
+    path.join(__dirname, "uploads/coordinator", filename),
+    path.join(__dirname, "uploads/certificates", filename),
+  ];
 
-  if (fs.existsSync(certificatePath)) {
-    return res.download(certificatePath);
-  }
-
-  if (fs.existsSync(normalPath)) {
-    return res.download(normalPath);
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      return res.download(p);
+    }
   }
 
   return res.status(404).json({ message: "File not found" });
 });
+
 
 /* ===================== SERVER ===================== */
 const PORT = process.env.PORT || 5000;

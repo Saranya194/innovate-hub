@@ -16,6 +16,10 @@ export default function SIH() {
     theme: "",
     sihFile: null,
   };
+  const role = localStorage.getItem("adminRole");
+const isCoordinator =
+  role === "central_coordinator" || role === "incubation_coordinator";
+
 
   const [formData, setFormData] = useState(initialState);
   const [fileKey, setFileKey] = useState(Date.now());
@@ -94,7 +98,11 @@ export default function SIH() {
   =============================== */
   const handleSubmit = (e) => {
     e.preventDefault();
-
+     // 🚫 NO FACE VERIFICATION FOR COORDINATORS
+  if (isCoordinator) {
+    submitSIH();
+    return;
+  }
     if (!verified) {
       setShowFaceModal(true);
       return;
@@ -210,7 +218,7 @@ export default function SIH() {
       </div>
 
       {/* ================= FACE VERIFY MODAL ================= */}
-      {showFaceModal && (
+      {showFaceModal && !isCoordinator && (
         <FaceVerifyModal
           onSuccess={() => {
             setVerified(true);

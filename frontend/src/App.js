@@ -27,6 +27,10 @@ import AdminExplore from "./components/AdminExplore";
 import AdminActivityProfile from "./components/AdminActivityProfile";
 import AdminCertificates from "./components/AdminCertificates";
 import "./App.css";
+import ForgotPassword from "./components/ForgotPassword";
+import CoordinatorDashboard from "./components/CoordinatorDashboard";
+import AdminBulkUploads from "./components/AdminBulkUploads";
+
 
 /* ================= AXIOS BASE CONFIG ================= */
 axios.defaults.baseURL = "http://localhost:5000";
@@ -47,6 +51,8 @@ function AppLayout() {
     "/admin/publications",
     "/admin/awards",
     "/admin/certificates",
+    "/admin/bulk-upload",
+    "/coordinator-dashboard",
   ];
 
   // 🔥 Hide for static + dynamic routes
@@ -73,10 +79,11 @@ function AppLayout() {
           <Route path="/" element={<RegistrationBoxes />} />
           <Route path="/student-register" element={<StudentRegistration />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/research-papers" element={<ResearchPapers />} />
           <Route path="/faculty-register" element={<FacultyRegistration />} />
           <Route path="/faculty-login" element={<FacultyLogin />} />
+
+           <Route path="/admin-login/:role" element={<AdminLogin />} />
 
           {/* ADMIN */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
@@ -88,6 +95,10 @@ function AppLayout() {
           <Route path="/admin/publications" element={<AdminExplore />} />
           <Route path="/admin/awards" element={<AdminExplore />} />
           <Route path="/admin/certificates" element={<AdminCertificates />} />
+          <Route
+  path="/admin/bulk-upload"
+  element={<AdminBulkUploads />}
+/>
 
           {/* 🔥 ACTIVITY PROFILE */}
           <Route
@@ -121,6 +132,16 @@ function AppLayout() {
             path="/faculty-reset-password"
             element={<FacultyResetPassword />}
           />
+          <Route path="/forgot-password/:role" element={<ForgotPassword />} />
+          <Route
+  path="/coordinator-dashboard"
+  element={<CoordinatorDashboard />}
+/>
+
+
+  
+
+
         </Routes>
       </main>
 
@@ -132,14 +153,17 @@ function AppLayout() {
 
 export default function App() {
   useEffect(() => {
-    const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    } else {
-      delete axios.defaults.headers.common["Authorization"];
-    }
-  }, []);
+  if (token) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${token}`;
+  } else {
+    delete axios.defaults.headers.common["Authorization"];
+  }
+}, []);
+
 
   return (
     <Router>

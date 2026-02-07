@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AdminLayout from "./AdminLayout";
 import "./AdminDashboard.css";
-
+import { Filler } from "chart.js";
+ChartJS.register(Filler);
 import { Bar, Pie, Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,

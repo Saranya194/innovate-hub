@@ -16,11 +16,17 @@ const SIHSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true
     },
-    ownerRole: {
-      type: String,
-      enum: ["student", "faculty"],
-      required: true
-    }
+   ownerRole: {
+  type: String,
+  enum: [
+    "student",
+    "faculty",
+    "central_coordinator",
+    "incubation_coordinator"
+  ],
+  required: true
+}
+
   },
   { timestamps: true }
 );

@@ -8,6 +8,10 @@ const ResearchPaperSchema = new mongoose.Schema(
     journalName: String,
     publisher: String,
     publicationType: String,
+    publicationDatabase: {
+  type: String,
+  enum: ["Scopus", "SCI", "SCIE", "UGC CARE", "Open Access", "Impact Factor"],
+},
     volume: String,
     issue: String,
     pageNumbers: String,
@@ -20,10 +24,16 @@ const ResearchPaperSchema = new mongoose.Schema(
       required: true
     },
     ownerRole: {
-      type: String,
-      enum: ["student", "faculty"],
-      required: true
-    }
+  type: String,
+  enum: [
+    "student",
+    "faculty",
+    "central_coordinator",
+    "incubation_coordinator"
+  ],
+  required: true
+}
+
   },
   { timestamps: true }
 );

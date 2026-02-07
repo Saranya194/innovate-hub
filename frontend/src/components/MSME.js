@@ -15,6 +15,10 @@ export default function MSME() {
     msmePdf: null,
   };
 
+  const role = localStorage.getItem("adminRole");
+const isCoordinator =
+  role === "central_coordinator" || role === "incubation_coordinator";
+
   const [formData, setFormData] = useState(initialState);
   const [msmes, setMsmes] = useState([]);
   const [fileKey, setFileKey] = useState(Date.now());
@@ -68,7 +72,11 @@ export default function MSME() {
   =============================== */
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    // 🚫 NO FACE VERIFICATION FOR COORDINATORS
+  if (isCoordinator) {
+    submitMSME();
+    return;
+  }
     if (!verified) {
       setShowFaceModal(true);
       return;
@@ -167,7 +175,7 @@ export default function MSME() {
       </div>
 
       {/* ================= FACE VERIFY MODAL ================= */}
-      {showFaceModal && (
+      {showFaceModal && !isCoordinator && (
         <FaceVerifyModal
           onSuccess={() => {
             setVerified(true);

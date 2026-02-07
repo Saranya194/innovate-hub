@@ -141,6 +141,13 @@ export default function FacultyLogin() {
                 Verify & Login
               </button>
             )}
+            <p
+  className="forgot-link"
+  onClick={() => navigate("/forgot-password/faculty")}
+>
+  Forgot Password?
+</p>
+
 
             {error && <p className="login-error">{error}</p>}
             {success && <p className="login-success">{success}</p>}
